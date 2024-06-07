@@ -87,14 +87,11 @@ images.forEach(item => {
 
 gallery.insertAdjacentHTML('afterbegin', galleryBox);
 
-let imageOrigin = '';
-
 gallery.addEventListener('click', event => {
   event.preventDefault();
   if (event.target.nodeName !== 'IMG') return;
-  imageOrigin = event.target.dataset.source;
   const instance = basicLightbox.create(`
-        <img src="${imageOrigin}" width="800" height="600">
-`);
+    <img src="${event.target.dataset.source}" width="800" height="600">
+  `);
   instance.show();
 });
